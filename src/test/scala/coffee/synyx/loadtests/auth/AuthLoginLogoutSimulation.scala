@@ -43,9 +43,9 @@ class AuthLoginLogoutSimulation extends Simulation {
     )
 
   setUp(scn.inject(
-    rampUsersPerSec(1) to 30 during (0.1 minutes),
-    constantUsersPerSec(30) during (0.1 minutes),
-    rampUsersPerSec(30) to 1 during (0.1 minutes)
+    rampUsersPerSec(1) to 50 during (1 minutes),
+    constantUsersPerSec(50) during (2 minutes),
+    rampUsersPerSec(50) to 1 during (1 minutes)
   ))
     .protocols(httpConf)
     .assertions(
