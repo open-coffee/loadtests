@@ -1,4 +1,4 @@
-CoffeeNet load testing
+CoffeeNet Performance Testing
 ===============================
 
 To test it out, simply execute the following command:
