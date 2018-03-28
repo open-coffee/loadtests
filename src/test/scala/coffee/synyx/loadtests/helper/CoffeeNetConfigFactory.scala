@@ -22,7 +22,6 @@ object CoffeeNetConfigFactory {
     */
   def load(className: String): Config = {
 
-
     val config: Config = ConfigFactory.parseFile(new File(className + ".properties"))
       .withFallback(ConfigFactory.parseFile(new File("application.properties"))
         .withFallback(ConfigFactory.load()))

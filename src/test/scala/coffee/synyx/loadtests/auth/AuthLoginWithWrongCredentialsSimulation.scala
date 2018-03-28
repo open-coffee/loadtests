@@ -38,15 +38,17 @@ class AuthLoginWithWrongCredentialsSimulation extends Simulation {
         .check(css("div.alert.alert-danger").exists)
     )
 
-  setUp(scn.inject(
-    rampUsersPerSec(1) to 5 during (0.1 minutes),
-    constantUsersPerSec(5) during (0.1 minutes),
-    rampUsersPerSec(5) to 1 during (0.1 minutes)
-  ))
-    .protocols(httpConf)
-    .assertions(
-      global.responseTime.max.lte(30),
-      global.responseTime.mean.lte(15),
-      global.successfulRequests.percent.gte(99)
+  setUp(
+    scn.inject(
+      rampUsersPerSec(1) to 5 during (0.1 minutes),
+      constantUsersPerSec(5) during (0.1 minutes),
+      rampUsersPerSec(5) to 1 during (0.1 minutes)
     )
+  )
+  .protocols(httpConf)
+  .assertions(
+    global.responseTime.max.lte(30),
+    global.responseTime.mean.lte(15),
+    global.successfulRequests.percent.gte(99)
+  )
 }

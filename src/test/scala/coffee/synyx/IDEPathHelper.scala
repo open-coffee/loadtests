@@ -1,24 +1,21 @@
-package coffee.synyx
-
 import java.nio.file.Path
-
 import io.gatling.commons.util.PathHelper._
 
 object IDEPathHelper {
 
-  val gatlingConfUrl: Path = getClass.getClassLoader.getResource("gatling.conf").toURI
-  val projectRootDir: Path = gatlingConfUrl.ancestor(3)
+    val gatlingConfUrl: Path = getClass.getClassLoader.getResource("gatling.conf")
+    val projectRootDir = gatlingConfUrl.ancestor(3)
 
-  val mavenSourcesDirectory: Path = projectRootDir / "src" / "test" / "scala"
-  val mavenResourcesDirectory: Path = projectRootDir / "src" / "test" / "resources"
-  val mavenTargetDirectory: Path = projectRootDir / "target"
-  val mavenBinariesDirectory: Path = mavenTargetDirectory / "test-classes"
+    val mavenSourcesDirectory = projectRootDir / "src" / "test" / "scala"
+    val mavenResourcesDirectory = projectRootDir / "src" / "test" / "resources"
+    val mavenTargetDirectory = projectRootDir / "target"
+    val mavenBinariesDirectory = mavenTargetDirectory / "test-classes"
 
-  val dataDirectory: Path = mavenResourcesDirectory / "data"
-  val bodiesDirectory: Path = mavenResourcesDirectory / "bodies"
+    val dataDirectory = mavenResourcesDirectory / "data"
+    val bodiesDirectory = mavenResourcesDirectory / "bodies"
 
-  val recorderOutputDirectory: Path = mavenSourcesDirectory
-  val resultsDirectory: Path = mavenTargetDirectory / "gatling"
+    val recorderOutputDirectory = mavenSourcesDirectory
+    val resultsDirectory = mavenTargetDirectory / "gatling"
 
-  val recorderConfigFile: Path = mavenResourcesDirectory / "recorder.conf"
+    val recorderConfigFile = mavenResourcesDirectory / "recorder.conf"
 }

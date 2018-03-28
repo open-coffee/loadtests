@@ -27,7 +27,7 @@ class AuthLoginLogoutSimulation extends Simulation {
         .check(status.is(200))
         .check(css("input[name='_csrf']", "value").saveAs("csrfToken"))
     )
-    .feed(csv("user_credentials.csv"))
+    .feed(csv("user_credentials.csv").circular)
     .exec(
       http("Login")
         .post("/login")
