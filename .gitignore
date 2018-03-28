@@ -1,1 +1,2 @@
-!/.mvn/wrapper/
+target/
+!/.mvn/wrapper/maven-wrapper.jar
